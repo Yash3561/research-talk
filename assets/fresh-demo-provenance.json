@@ -1,0 +1,64 @@
+{
+  "role": "Recorded audited fresh-state replay, not a new control experiment",
+  "frames": 780,
+  "fps": 20,
+  "duration_s": 39.0,
+  "resolution": [
+    1280,
+    720
+  ],
+  "case_selection": "First lexicographic fresh case in each discordant category, chosen after outcomes; not a representative sample",
+  "rendering": "Exact archived qpos/qvel at 20 Hz. No interpolation or integration. Final sampled pose held after early termination.",
+  "audio": "None; burned-in captions",
+  "source_records": [
+    {
+      "trial_id": "fresh-g000-w1-s0-integral-feedback",
+      "source_sha256": "ae2c67cdb9c47095f35eae76662e0ff653a86b72cf269872ea401b73d82f1a47",
+      "audit_passed": true,
+      "success": true,
+      "failures": []
+    },
+    {
+      "trial_id": "fresh-g000-w1-s0-capped-predictive",
+      "source_sha256": "e96712961219f79c0f0e620e0e355444cf27e471367063117da4e5a12709d211",
+      "audit_passed": true,
+      "success": false,
+      "failures": [
+        "attitude",
+        "return_not_settled",
+        "workspace"
+      ]
+    },
+    {
+      "trial_id": "fresh-g015-w1-s0-integral-feedback",
+      "source_sha256": "fb41137d936edfb070f71faeb3ffc51a2234bb58d0a8ade991fa55bc5062dfbc",
+      "audit_passed": true,
+      "success": false,
+      "failures": [
+        "return_not_settled"
+      ]
+    },
+    {
+      "trial_id": "fresh-g015-w1-s0-capped-predictive",
+      "source_sha256": "d35082128bdce605b804548aab8bb953efbf6dc30ef8bed77805a7f3188277a3",
+      "audit_passed": true,
+      "success": true,
+      "failures": []
+    }
+  ],
+  "analysis_sha256": "6222639ce0d12a2416d9c7e537ef34bfce62faa229add18cd5054107cf2b3638",
+  "summary_sha256": "5f35950820d48413dc7dc8379b20a58a99d0987231c23f1132af48b842256df2",
+  "model_sha256": "0e268ba00cb869e08f63a19746e91240c556fbc1ba4ce9ffc03abbc6105b9c29",
+  "renderer_sha256": "33ef4b0bbaf9fb363fd2355f23af462582f9896f16850f24475eb0990dc6af6b",
+  "base_renderer_sha256": "9c8217918fcaa9e9addb72899170cddb5ffbba56f01da4df4bc38e61f035deb6",
+  "artifacts": {
+    "fresh-pair-0.png": "6a6c9bd571a1331a13ea7e4e45ada290719963edc972e790e88c9e1313270c40",
+    "fresh-pair-1.png": "852f49ea8b13e8b03ccc909264953a01ec57cfe957e8bea22c06408aa619367d",
+    "poster.png": "6a6c9bd571a1331a13ea7e4e45ada290719963edc972e790e88c9e1313270c40",
+    "intro.png": "39d334650fdd123ff3df10ea5e1d1db3a3fc47250342217515fc863142252d5b",
+    "task.png": "1361658d304dc3955318d7311fec117a9489fd5386713a5f57c7e7975011ff8a",
+    "fresh-result.png": "1cd3f1b84c1363734d906fea22ef9a9361eda6218fdc752e697347808d3d3753",
+    "fresh-control-demo.mp4": "7a128a20d405f539c4d0ff831e93a1e44dda585767eb610bfdde50899b213472",
+    "next-study.png": "5d6a7191114d23c01a76439cfe67c6bc5cc4b031abc2df1d6d860dadaed2619e"
+  }
+}

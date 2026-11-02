@@ -11,3 +11,7 @@ No rehearsal scripts, talk cues, interview coaching, private-site links, CV, unp
 Publish the repository root through GitHub Pages (`main`, `/`). `.nojekyll` disables Jekyll. `noindex,nofollow` asks search engines not to index the presentation; it is not an access restriction.
 
 The site has no ongoing idle animation or timer loop. Playback requests frames only after Play, and stops when paused, hidden or on a different chapter.
+
+## Fresh recorded demo
+
+`demo.html` embeds a 39-second MP4 with burned-in captions, exact archived fresh states and the completed negative aggregate result. Two post-outcome illustrations show opposite discordant cases, selected by a declared lexicographic rule. These are not representative samples. Public provenance contains source and rendering hashes. The archived v14 development film is unchanged.

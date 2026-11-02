@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#f5f4ee">
+  <title>Fresh simulation demo — Yash Chaudhary</title>
+  <meta name="description" content="A 39-second recorded replay of two audited fresh simulation cases, followed by the complete 192-case controller comparison.">
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css"><script defer src="demo.js"></script>
+  <style>
+    .demo-main{max-width:1200px;margin:auto;padding-bottom:60px}.demo-main h1{font-size:clamp(38px,4.5vw,61px)}
+    .demo-lead{max-width:800px;color:var(--soft)}.demo-video{display:block;width:100%;aspect-ratio:16/9;background:#101f2a;border-radius:5px;margin:25px 0 12px}
+    .demo-meta{display:flex;justify-content:space-between;align-items:center;gap:20px;font:10px/1.6 var(--mono);color:var(--soft)}.demo-meta a{font-family:Arial,sans-serif;font-size:12px;text-underline-offset:4px}
+    .demo-finding{display:grid;grid-template-columns:1.1fr .9fr;gap:35px;border-top:1px solid var(--line);margin-top:30px;padding-top:25px}.demo-finding h2{font-size:30px;letter-spacing:-.5px}.demo-finding p{font-size:12px;color:var(--soft)}.demo-actions{display:flex;gap:20px;flex-wrap:wrap;font-size:12px;margin-top:20px}.demo-actions a{text-underline-offset:4px}
+    @media(max-width:650px){.demo-finding{grid-template-columns:1fr;gap:10px}.demo-meta{align-items:start;font-size:9px}.demo-meta a{font-size:10px}.demo-main{padding-bottom:35px}.demo-main h1{font-size:38px}}
+  </style>
+</head>
+<body>
+  <header class="mast"><a href="index.html#1" class="identity">Yash Chaudhary<span>Research discussion · November 2026</span></a><div class="header-actions"><a href="index.html#4">← Presentation</a></div></header>
+  <main class="demo-main"><p class="eyebrow">AUDITED FRESH SIMULATION · RECORDED STATE REPLAY</p><h1>Fresh cases.<br><em>Complete results.</em></h1><p class="demo-lead">Two deliberately selected fresh cases show opposite outcomes. The full 192-case comparison then puts those examples in context.</p>
+    <video id="fresh-video" class="demo-video" controls playsinline preload="metadata" poster="assets/fresh-demo-poster.png" aria-label="Fresh simulation demo with burned-in explanatory captions"><source src="assets/fresh-control-demo.mp4" type="video/mp4">Your browser cannot play this video. <a href="assets/fresh-control-demo.mp4">Download the MP4</a>.</video>
+    <div class="demo-meta"><span>39 SECONDS · CAPTIONED · NO AUDIO · 1280 × 720</span><a href="assets/fresh-control-demo.mp4" download>Download video ↓</a></div>
+    <div class="demo-finding"><div><p class="eyebrow">COMPLETE FROZEN FRESH COHORT</p><h2>Planner 13/192.<br>Integral feedback 29/192.</h2><p>Ordinary PD: 27/192. Primary planner-minus-integral difference: −8.33 percentage points; 95% whole-group interval [−15.62, −1.56]. All 576 episodes passed replay audits. The development advantage did not generalize.</p></div><div><h3>What the recording shows</h3><p><strong>fresh-g000-w1-s0:</strong> integral feedback completes; the planner fails.<br><strong>fresh-g015-w1-s0:</strong> the planner completes; integral feedback fails.</p><p>These are the lexicographically first cases in the two discordant outcome categories, chosen after observing outcomes. They are explanatory examples, not a representative sample. Across all pairs, three favor the planner and nineteen favor integral feedback.</p><p>Exact archived states replayed at 20 Hz, with no state interpolation or new control run. Simulation only; no hardware validation. The full comparison, not the selected clips, supports the reported result.</p></div></div>
+    <div class="demo-actions"><a href="index.html#5">View the complete comparison →</a><a href="assets/fresh-demo-provenance.json">Recording provenance ↗</a><a href="index.html#4">Return to experiment design ↗</a></div>
+  </main>
+</body>
+</html>
