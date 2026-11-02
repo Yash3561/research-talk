@@ -21,20 +21,24 @@
     $('#tilt-value').textContent=angle+'°';$('#lift-value').textContent=(force*Math.cos(r)).toFixed(1)+' N';
     $('#total-force').setAttribute('x2',x);$('#total-force').setAttribute('y2',y);$('#vertical-force').setAttribute('y2',y);$('#force-guide').setAttribute('d',`M120 ${y}H${x}`);
   }
-  function initTrace() {
-    $('#case-id').textContent=D.recorded_case.id;
-    for(const method of ['planner','integral']) {
-      const points=D.recorded_case.trajectories[method].trace;
-      const path=f=>points.map((q,i)=>`${i?'L':'M'}${(60+550*q.t/7).toFixed(2)},${f(q).toFixed(2)}`).join(' ');
-      $('#'+method+'-z').setAttribute('d',path(q=>130-30*q.z));
-      $('#'+method+'-xy').setAttribute('d',path(q=>280-45*Math.min(q.xy,2)));
-    }
-  }
+  let lastPoseTick=-1;
+  function initTrace() { $('#case-id').textContent=D.recorded_case.id; }
   function paintTrace() {
     $('#trace-time').textContent=time.toFixed(2)+' s';$('#scrub').value=Math.round(time*1000);
     $('#scrub').setAttribute('aria-valuetext',time.toFixed(2)+' seconds');
-    $('#trace-cursor').setAttribute('d',`M${60+550*time/7} 33V286`);
-    $('#play').textContent=playing?'Pause trajectory':'Play trajectory';$('#play').setAttribute('aria-pressed',String(playing));
+    $('#play').textContent=playing?'Pause replay':time>=7?'Replay again':'Play replay';$('#play').setAttribute('aria-pressed',String(playing));
+    const tick=['planner','integral'].map(m=>window.RecordedReplay.sample(D.recorded_case.trajectories[m].pose_trace,time).index).join(',');if(tick===lastPoseTick)return;lastPoseTick=tick;
+    for(const method of ['planner','integral']) {
+      const tr=D.recorded_case.trajectories[method].trace;
+      let end=0;for(let i=1;i<tr.length&&tr[i].t<=time;i++)end=i;
+      const visible=tr.slice(0,end+1),q=tr[end],xx=t=>60+550*t/7;
+      const path=f=>visible.map((v,i)=>`${i?'L':'M'}${xx(v.t).toFixed(2)},${f(v).toFixed(2)}`).join(' ');
+      const xy=v=>125-100*v.xy;
+      $('#'+method+'-xy').setAttribute('d',path(xy));
+      for(const [name,y] of [['xy',xy(q)]]){$('#'+method+'-'+name+'-dot').setAttribute('cx',xx(q.t));$('#'+method+'-'+name+'-dot').setAttribute('cy',y);}
+      window.RecordedReplay.pose($('#pose-'+method),D.recorded_case.trajectories[method].pose_trace,time);
+      $('#live-'+method).textContent=`z ${q.z.toFixed(2)} m · XY ${q.xy.toFixed(2)} m · tilt ${q.attitude.toFixed(1)}°`;
+    }
   }
   function canPlay(){return playing&&chapter===4&&!document.hidden&&!modal.open;}
   function syncReplay(){
